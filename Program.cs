@@ -13,7 +13,7 @@ namespace SignalRChat
     public class Program
     {
         public static void Main(string[] args) => CreateWebHostBuilder(args)
-                        .UseKestrel()
+            .UseKestrel()
             .UseUrls("http://*:50000")
             .Build().Run();
 
