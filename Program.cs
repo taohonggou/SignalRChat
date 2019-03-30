@@ -12,13 +12,14 @@ namespace SignalRChat
 {
     public class Program
     {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+        public static void Main(string[] args) => CreateWebHostBuilder(args)
+                        .UseKestrel()
+            .UseUrls("http://*:50000")
+            .Build().Run();
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+
+            .UseStartup<Startup>();
     }
 }
